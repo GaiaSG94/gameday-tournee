@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>Tournée · Jeu · V2 B · Salle</title>
+<meta name="viewport" content="width=1440">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1440px;height:900px;overflow:hidden}
+body{background:#ebeae6;color:#222;font:13px/1.4 -apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+button{font:inherit}
+.bh{position:absolute;left:40px;top:30px;width:880px}
+.bh .k{font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#76746e}
+.bh h1{font-size:26px;font-weight:600;letter-spacing:-.02em;margin:6px 0 6px}
+.bh p{font-size:13.5px;color:#4a4843;max-width:760px}
+.frame{position:absolute;transform-origin:0 0;overflow:hidden;background:#f3f4f5;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 24px 48px -24px rgba(0,0,0,.3)}
+.desk{width:1440px;height:900px;left:40px;top:150px;transform:scale(.62);border-radius:14px}
+.mob{width:390px;height:844px;left:1012px;top:30px;border-radius:44px;border:10px solid #1b1b1d}
+.dk-top{height:56px;background:#fff;border-bottom:1px solid #e3e5e8;display:flex;align-items:center;gap:20px;padding:0 24px}
+.dk-logo{width:110px;height:22px;border-radius:6px;background:#dcdfe2}
+.dk-search{flex:0 0 520px;margin:0 auto;height:38px;border-radius:19px;background:#eef0f2;color:#8a8f95;display:flex;align-items:center;padding:0 18px;font-size:14px}
+.dk-user{width:32px;height:32px;border-radius:50%;background:#dcdfe2}
+.dk-main{display:flex;gap:24px;padding:20px 24px}
+.dk-rail{width:220px;display:flex;flex-direction:column;gap:12px;padding-top:6px}
+.dk-rail span{height:14px;border-radius:7px;background:#e1e4e7}.dk-rail span:nth-child(2n){width:70%}
+.dk-feed{width:760px;margin-left:90px}
+.dk-aside{width:300px;background:#fff;border-radius:12px;height:220px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.dk-aside span{height:12px;border-radius:6px;background:#e7e9eb}
+.post{background:#fff;border-radius:12px;padding:14px 10px 10px}
+.post-hd{display:flex;align-items:center;gap:8px;font-size:12px;color:#62676d;padding:0 6px}
+.post-hd .av{width:24px;height:24px;border-radius:50%;background:#cfd3d7}.post-hd b{color:#1f1f1f}
+.post-title{font-size:19px;font-weight:600;padding:8px 6px 12px}
+.post-game{border-radius:8px;overflow:hidden;border:1px solid #e6e7e9}
+.post-act{display:flex;gap:8px;padding:10px 4px 0}
+.post-act span{height:32px;padding:0 14px;border-radius:16px;background:#eef0f2;display:flex;align-items:center;font-size:12.5px;font-weight:600;color:#3c4043}
+.mb-status{height:44px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;font-size:14px;font-weight:600;background:#fff}
+.mb-status i{width:60px;height:12px;border-radius:6px;background:#1b1b1d;opacity:.85}
+.mb-bar{height:48px;background:#fff;display:flex;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid #e9ebed}
+.mb-bar .a{width:22px;height:22px;border-radius:6px;background:#dcdfe2}.mb-bar .s{flex:1;height:32px;border-radius:16px;background:#eef0f2}
+.mob .post{border-radius:0;padding:10px 0 0}.mob .post-hd{padding:0 12px}.mob .post-title{font-size:16px;padding:6px 12px 8px}
+.mob .post-game{border-radius:0;border-left:0;border-right:0}.mob .post-act{padding:8px 10px}
+.cap{position:absolute;font:500 10.5px ui-monospace,Menlo,monospace;color:#8a8882;letter-spacing:.04em}
+
+/* ---- direction B · Salle ---- */
+
+.g{--ink:#e2432e;background:#fff;color:var(--ink);font-family:"Helvetica Neue",Arial,sans-serif}
+.room{display:block;width:100%;height:auto}
+.hl{fill:none;stroke:var(--ink);stroke-width:1}
+.hf{stroke:var(--ink);stroke-width:.5;opacity:.55}
+.st{stroke:var(--ink);stroke-width:.7;opacity:.75}
+.pk{fill:rgba(226,67,46,.14);stroke:var(--ink);stroke-width:.6}
+.rt{fill:none;stroke:var(--ink);stroke-width:3.2;stroke-linejoin:miter}
+.dp{fill:#fff;stroke:var(--ink);stroke-width:1.4}.dpi{fill:var(--ink)}
+.so{fill:#fff;stroke:var(--ink);stroke-width:1.2}
+.sf{fill:var(--ink)}
+.sn{fill:#fff;font:600 10px "Helvetica Neue",Arial,sans-serif;text-anchor:middle}
+.ring{fill:none;stroke:var(--ink);stroke-width:.8;stroke-dasharray:3 2.5}
+.lb{fill:var(--ink);font:500 10.5px "Helvetica Neue",Arial,sans-serif;paint-order:stroke;stroke:#fff;stroke-width:3px}
+.lb.lt{font-weight:400}
+.ct polyline{fill:none;stroke:var(--ink);stroke-width:.62;stroke-linecap:square;stroke-linejoin:miter}
+.ct.big polyline{stroke-width:.5}
+.pp{fill:var(--ink);font:500 11.5px "Helvetica Neue",Arial,sans-serif}
+.mo{fill:var(--ink);font:400 9.5px ui-monospace,Menlo,monospace;letter-spacing:.02em}
+.vt{fill:var(--ink);font:400 10.5px "Helvetica Neue",Arial,sans-serif;letter-spacing:.02em}
+.ac{fill:var(--ink);font:500 13px "Helvetica Neue",Arial,sans-serif}
+.ac.dim{opacity:.45}
+.cta{fill:#fff;stroke:var(--ink);stroke-width:1;stroke-dasharray:4 3;opacity:.7}
+</style></head>
+<body data-kind="room">
+<div class="bh"><div class="k">TOURNÉE · PAGE JEU · PLANCHE V2 / B</div><h1>B · Salle</h1><p>PART : le post devient une pièce dessinée au filet rouge. La ville est posée au sol en perspective, le mur du fond porte le titre en lettres construites, le récit et les blocs parcourus ; les infos de partie sont écrites à la verticale sur les murs latéraux. La route et les lettres sont faites du même trait.</p></div>
+<div class="cap" style="left:40px;top:722px">desktop 1440 × 900 · 62 %</div>
+<div class="cap" style="left:1012px;top:880px">mobile 390 × 844 · 100 %</div>
+<div class="frame desk">
+  <div class="dk-top"><div class="dk-logo"></div><div class="dk-search">Search</div><div class="dk-user"></div></div>
+  <div class="dk-main"><aside class="dk-rail"><span></span><span></span><span></span><span></span><span></span><span></span></aside>
+    <section class="dk-feed"><article class="post"><div class="post-hd"><span class="av"></span><b>r/TourneeDaily</b><span>· 3 h</span></div>
+      <h2 class="post-title">Today's delivery round · Wed 18 Nov</h2><div class="post-game" data-game="wide"></div>
+      <div class="post-act"><span>Vote</span><span>214 comments</span><span>Share</span></div></article></section>
+    <aside class="dk-aside"><span></span><span></span><span></span><span></span></aside></div>
+</div>
+<div class="frame mob">
+  <div class="mb-status"><span>9:41</span><i></i></div>
+  <div class="mb-bar"><span class="a"></span><span class="s"></span><span class="a"></span></div>
+  <article class="post"><div class="post-hd"><span class="av"></span><b>r/TourneeDaily</b><span>· 3 h</span></div>
+    <h2 class="post-title">Today's delivery round · Wed 18 Nov</h2><div class="post-game" data-game="narrow"></div>
+    <div class="post-act"><span>Vote</span><span>214</span><span>Share</span></div></article>
+</div>
+
+<script>
+const DEPOT={n:'Depot',x:0,y:0,ic:'house'};
+const STOPS=[
+ {n:'Post',x:1,y:5,ic:'mail',tint:'#dde8fb',tag:[-1,1]},
+ {n:'Florist',x:4,y:0,ic:'flower',tint:'#f9dfe9',tag:[1,-1]},
+ {n:'Library',x:6,y:1,ic:'book',tint:'#e6e0fa',tag:[1,-1]},
+ {n:'Atelier',x:4,y:2,ic:'needle',tint:'#fbe7d3',tag:[1,-1]},
+ {n:'Bakery',x:1,y:0,ic:'bread',tint:'#f5eccc',tag:[1,-1]},
+ {n:'School',x:2,y:4,ic:'bell',tint:'#d9f0dc',tag:[-1,-1]}];
+const ORDER=[4,1,2,3];
+const KIND=document.body.dataset.kind;
+const dist=(a,b)=>Math.abs(a.x-b.x)+Math.abs(a.y-b.y);
+const hhmm=m=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+const MIN_PER_BLOCK=3, START=6*60;
+function legs(){let cur=DEPOT,cum=0;return ORDER.map(i=>{const s=STOPS[i],l=dist(cur,s);cum+=l;const o={i,s,from:cur,l,cum,t:hhmm(START+cum*MIN_PER_BLOCK)};cur=s;return o;});}
+function routePts(){const p=[[0,0]];legs().forEach(g=>{p.push([g.s.x,g.from.y]);p.push([g.s.x,g.s.y]);});return p;}
+// 5x5 pixel glyphs
+const PIX={
+ house:'00100 01110 11111 01010 01110', bread:'00000 01110 11111 10101 11111',
+ flower:'01010 11111 01010 00100 01110', book:'11011 10101 10101 10101 11011',
+ needle:'10001 01010 00100 01010 11011', mail:'11111 11011 10101 10001 11111',
+ bell:'00100 01110 01110 11111 00100', van:'11100 10110 11111 11111 01010'};
+function pix(name,x,y,u,fill){let s='';PIX[name].split(' ').forEach((row,r)=>[...row].forEach((c,k)=>{if(c==='1')s+=`<rect x="${(x+k*u).toFixed(3)}" y="${(y+r*u).toFixed(3)}" width="${u}" height="${u}" fill="${fill}"/>`;}));return s;}
+function pixSvg(name,size,fill){return `<svg class="px" width="${size}" height="${size}" viewBox="0 0 5 5" shape-rendering="crispEdges">${pix(name,0,0,1,fill)}</svg>`;}
+// constructed stroke type (own design: orthogonal + 45deg strokes on a 4x6 grid)
+const GLY={
+ T:[[[0,0],[4,0]],[[2,0],[2,6]]], O:[[[1,0],[3,0],[4,1],[4,5],[3,6],[1,6],[0,5],[0,1],[1,0]]],
+ U:[[[0,0],[0,5],[1,6],[3,6],[4,5],[4,0]]], R:[[[0,6],[0,0],[3,0],[4,1],[4,2],[3,3],[0,3]],[[2,3],[4,6]]],
+ N:[[[0,6],[0,0],[4,6],[4,0]]], E:[[[4,0],[0,0],[0,6],[4,6]],[[0,3],[3,3]]],
+ 'É':[[[4,0],[0,0],[0,6],[4,6]],[[0,3],[3,3]],[[1.5,-1],[3,-2.2]]],
+ '0':[[[1,0],[3,0],[4,1],[4,5],[3,6],[1,6],[0,5],[0,1],[1,0]]],
+ '1':[[[1,1],[2,0],[2,6]],[[1,6],[3,6]]], '2':[[[0,1],[1,0],[3,0],[4,1],[4,2],[0,6],[4,6]]],
+ '3':[[[0,0],[4,0],[2,2.5],[3,2.5],[4,3.5],[4,5],[3,6],[1,6],[0,5]]], '4':[[[3,6],[3,0],[0,4],[4,4]]],
+ '5':[[[4,0],[0,0],[0,2.5],[3,2.5],[4,3.5],[4,5],[3,6],[0,6]]],
+ '6':[[[3,0],[1,0],[0,1],[0,5],[1,6],[3,6],[4,5],[4,3.5],[3,2.5],[0,2.5]]], '7':[[[0,0],[4,0],[1.5,6]]],
+ '8':[[[1,3],[0,2],[0,1],[1,0],[3,0],[4,1],[4,2],[3,3],[1,3],[0,4],[0,5],[1,6],[3,6],[4,5],[4,4],[3,3]]],
+ '9':[[[4,3.5],[1,3.5],[0,2.5],[0,1],[1,0],[3,0],[4,1],[4,5],[3,6],[1,6]]],
+ ':':[[[2,1.5],[2,2]],[[2,4.5],[2,5]]], '/':[[[0,6],[4,0]]], ' ':[]};
+function stroke(str,x,y,h,cls){const k=h/6;let s=`<g class="${cls||'ct'}" transform="translate(${x} ${y}) skewX(-14) scale(${k})">`;let cx=0;
+ [...str].forEach(ch=>{(GLY[ch]||[]).forEach(pl=>{s+=`<polyline points="${pl.map(p=>(p[0]+cx)+','+p[1]).join(' ')}"/>`;});cx+=ch===' '?3.5:6;});
+ return s+'</g>';}
+function strokeW(str,h){return [...str].reduce((w,ch)=>w+(ch===' '?3.5:6),0)*h/6-h/6*2;}
+
+
+function room(W,H,cfg){
+  const {bx0,bx1,by0,by1,floorY}=cfg; // back wall rect; floor front edge y
+  let s=`<svg viewBox="0 0 ${W} ${H}" class="room" role="img" aria-label="Wire room, city map on the floor">`;
+  const fl=floorY;
+  // frame + room edges
+  s+=`<rect x=".5" y=".5" width="${W-1}" height="${fl-1}" class="hl"/>`;
+  s+=`<rect x="${bx0}" y="${by0}" width="${bx1-bx0}" height="${by1-by0}" class="hl"/>`;
+  [[0,0,bx0,by0],[W,0,bx1,by0],[0,fl,bx0,by1],[W,fl,bx1,by1]].forEach(([a,b,c,d])=>s+=`<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" class="hl"/>`);
+  // ceiling hatch (dense, converging)
+  const n=46;for(let i=1;i<n;i++){const t=i/n;s+=`<line x1="${W*t}" y1="0" x2="${bx0+(bx1-bx0)*t}" y2="${by0}" class="hf"/>`;}
+  for(let i=1;i<7;i++){const t=i/7;const y0=by0*t;s+=`<line x1="${bx0*t}" y1="${y0}" x2="${W-(W-bx1)*t}" y2="${y0}" class="hf"/>`;}
+  // side walls: verticals converging
+  for(let i=1;i<6;i++){const t=i/6;const x=bx0*t;const yt=by0*t,yb=fl-(fl-by1)*t;s+=`<line x1="${x}" y1="${yt}" x2="${x}" y2="${yb}" class="hf"/>`;
+    const xr=W-(W-bx1)*t;s+=`<line x1="${xr}" y1="${yt}" x2="${xr}" y2="${yb}" class="hf"/>`;}
+  // floor projection
+  const Zb=(W)/(bx1-bx0), Zf=1; // depth ratio
+  const proj=(x,y)=>{ // x,y lattice 0..7 ; margin inside floor
+    const m=.55, u=(x+m)/(7+2*m), t=(y+m)/(7+2*m);
+    const Z=Zb+(Zf-Zb)*t; const inv=(1/Z-1/Zb)/(1/Zf-1/Zb);
+    const Y=by1+(fl-by1)*inv; const xl=bx0*(1-inv), xr=bx1+(W-bx1)*inv;
+    return [xl+(xr-xl)*u, Y];};
+  for(let k=0;k<8;k++){const a=proj(k,-.55),b=proj(k,7.55);s+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" class="st"/>`;
+    const c=proj(-.55,k),d=proj(7.55,k);s+=`<line x1="${c[0]}" y1="${c[1]}" x2="${d[0]}" y2="${d[1]}" class="st"/>`;}
+  // park, hatched
+  const pk=[proj(5.15,4.15),proj(5.85,4.15),proj(5.85,5.85),proj(5.15,5.85)];
+  s+=`<polygon points="${pk.map(p=>p.join(',')).join(' ')}" class="pk"/>`;
+  // route
+  s+=`<polyline points="${routePts().map(p=>proj(p[0],p[1]).join(',')).join(' ')}" class="rt"/>`;
+  // stops
+  const dp=proj(0,0);s+=`<rect x="${dp[0]-6}" y="${dp[1]-6}" width="12" height="12" class="dp"/><rect x="${dp[0]-2.5}" y="${dp[1]-2.5}" width="5" height="5" class="dpi"/>`;
+  s+=`<text x="${dp[0]-10}" y="${dp[1]-9}" class="lb" text-anchor="end">depot</text>`;
+  STOPS.forEach((st,i)=>{const k=ORDER.indexOf(i);const p=proj(st.x,st.y);const sc=.75+.35*((st.y+.5)/8);
+    if(k===ORDER.length-1) s+=`<circle cx="${p[0]}" cy="${p[1]}" r="${15*sc}" class="ring"/>`;
+    if(k<0) s+=`<circle cx="${p[0]}" cy="${p[1]}" r="${6*sc}" class="so"/><line x1="${p[0]-11*sc}" y1="${p[1]}" x2="${p[0]+11*sc}" y2="${p[1]}" class="hl"/><line x1="${p[0]}" y1="${p[1]-11*sc}" x2="${p[0]}" y2="${p[1]+11*sc}" class="hl"/>`;
+    else s+=`<circle cx="${p[0]}" cy="${p[1]}" r="${9*sc}" class="sf"/><text x="${p[0]}" y="${p[1]+3.6*sc}" class="sn" style="font-size:${10*sc}px">${k+1}</text>`;
+    s+=`<text x="${p[0]+12*sc}" y="${p[1]-8*sc}" class="lb${k<0?' lt':''}" style="font-size:${10.5*sc}px">${st.n.toLowerCase()}</text>`;});
+  return {s,proj};}
+
+function game(narrow){
+  const L=legs(), driven=L.at(-1).cum;
+  const W=narrow?390:740, H=narrow?592:540;
+  const cfg=narrow?{bx0:54,bx1:336,by0:56,by1:228,floorY:526}:{bx0:178,bx1:562,by0:52,by1:214,floorY:478};
+  const R=room(W,H,cfg); let s=R.s;
+  const {bx0,bx1,by0,by1,floorY}=cfg;
+  // back wall content : constructed title + narrative + running sentence + big number
+  const th=narrow?17:19;
+  s+=stroke('TOURNÉE',bx0+14,by0+16,th,'ct');
+  const para=narrow
+    ? ['Six parcels wait at the depot.','Drive them all and bring the van','home by the shortest round.']
+    : ['Six parcels wait at the depot. Drive them all','and bring the van home by the shortest round.'];
+  para.forEach((ln,i)=>s+=`<text x="${bx0+14}" y="${by0+(narrow?58:56)+i*14}" class="pp">${ln}</text>`);
+  const seq='depot · '+L.map(g=>g.s.n.toLowerCase()+' '+g.l).join(' · ')+' · ?';
+  const words=['depot · bakery 1 · florist 3','library 3 · atelier 3 · ?'];
+  words.forEach((w,i)=>s+=`<text x="${bx0+14}" y="${by1-(narrow?44:30)+i*13}" class="mo">${w}</text>`);
+  const num=String(driven);const nh=narrow?30:40;
+  s+=stroke(num,bx1-14-strokeW(num,nh),by1-(narrow?30:14)-nh,nh,'ct big');
+  s+=`<text x="${bx1-14}" y="${by1-(narrow?14:2)}" class="mo" text-anchor="end" dy="${narrow?0:-2}">blocks</text>`;
+  // side walls: vertical labels
+  const lx=bx0/2+4, rx=W-(W-bx1)/2-4;
+  const vl=(x,y,t,rot)=>`<text x="${x}" y="${y}" class="vt" transform="rotate(${rot} ${x} ${y})" text-anchor="middle">${t}</text>`;
+  const mid=(by0+floorY)/2;
+  s+=vl(lx,mid-70,'round 18.11',-90)+vl(lx,mid+60,'6 stops',-90);
+  s+=vl(rx,mid-70,'clock 00:42',90)+vl(rx,mid+60,'streak 6',90);
+  // actions
+  const ay=floorY+(narrow?20:24);
+  s+=`<text x="16" y="${ay+18}" class="ac">undo</text><line x1="16" y1="${ay+24}" x2="52" y2="${ay+24}" class="hl"/>`;
+  const bw=narrow?220:260;
+  s+=`<rect x="${W-16-bw}" y="${ay}" width="${bw}" height="34" class="cta"/>`;
+  s+=`<text x="${W-16-bw+14}" y="${ay+22}" class="ac dim">send route</text><text x="${W-30}" y="${ay+22}" class="ac dim" text-anchor="end">4/6 →</text>`;
+  s+=`<text x="${W/2-(narrow?20:40)}" y="${ay+22}" class="mo" text-anchor="middle">${narrow?'':'two parcels left'}</text>`;
+  return `<div class="g">${s.replace('<svg',`<svg`)}</svg></div>`.replace('</svg></svg>','</svg>');}
+
+document.querySelectorAll('[data-game]').forEach(el=>{el.innerHTML=game(el.dataset.game==='narrow');});</script>
+</body></html>
