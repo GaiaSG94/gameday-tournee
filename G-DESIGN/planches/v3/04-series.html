@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>Tournée · 04 · Séries & classement</title>
+<meta name="viewport" content="width=1440">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1440px;height:900px;overflow:hidden}
+body{background:#ebeae6;color:#222;font:13px/1.4 -apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+button{font:inherit}
+.bh{position:absolute;left:40px;top:30px;width:880px}
+.bh .k{font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#76746e}
+.bh h1{font-size:26px;font-weight:600;letter-spacing:-.02em;margin:6px 0 6px}
+.bh p{font-size:13.5px;color:#4a4843;max-width:760px}
+.frame{position:absolute;transform-origin:0 0;overflow:hidden;background:#f3f4f5;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 24px 48px -24px rgba(0,0,0,.3)}
+.desk{width:1440px;height:900px;left:40px;top:150px;transform:scale(.62);border-radius:14px}
+.mob{width:390px;height:844px;left:1012px;top:30px;border-radius:44px;border:10px solid #1b1b1d}
+.dk-top{height:56px;background:#fff;border-bottom:1px solid #e3e5e8;display:flex;align-items:center;gap:20px;padding:0 24px}
+.dk-logo{width:110px;height:22px;border-radius:6px;background:#dcdfe2}
+.dk-search{flex:0 0 520px;margin:0 auto;height:38px;border-radius:19px;background:#eef0f2;color:#8a8f95;display:flex;align-items:center;padding:0 18px;font-size:14px}
+.dk-user{width:32px;height:32px;border-radius:50%;background:#dcdfe2}
+.dk-main{display:flex;gap:24px;padding:20px 24px}
+.dk-rail{width:220px;display:flex;flex-direction:column;gap:12px;padding-top:6px}
+.dk-rail span{height:14px;border-radius:7px;background:#e1e4e7}.dk-rail span:nth-child(2n){width:70%}
+.dk-feed{width:760px;margin-left:90px}
+.dk-aside{width:300px;background:#fff;border-radius:12px;height:220px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.dk-aside span{height:12px;border-radius:6px;background:#e7e9eb}
+.post{background:#fff;border-radius:12px;padding:14px 10px 10px}
+.post-hd{display:flex;align-items:center;gap:8px;font-size:12px;color:#62676d;padding:0 6px}
+.post-hd .av{width:24px;height:24px;border-radius:50%;background:#cfd3d7}.post-hd b{color:#1f1f1f}
+.post-title{font-size:19px;font-weight:600;padding:8px 6px 12px}
+.post-game{border-radius:8px;overflow:hidden;border:1px solid #e6e7e9}
+.post-act{display:flex;gap:8px;padding:10px 4px 0}
+.post-act span{height:32px;padding:0 14px;border-radius:16px;background:#eef0f2;display:flex;align-items:center;font-size:12.5px;font-weight:600;color:#3c4043}
+.mb-status{height:44px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;font-size:14px;font-weight:600;background:#fff}
+.mb-status i{width:60px;height:12px;border-radius:6px;background:#1b1b1d;opacity:.85}
+.mb-bar{height:48px;background:#fff;display:flex;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid #e9ebed}
+.mb-bar .a{width:22px;height:22px;border-radius:6px;background:#dcdfe2}.mb-bar .s{flex:1;height:32px;border-radius:16px;background:#eef0f2}
+.mob .post{border-radius:0;padding:10px 0 0}.mob .post-hd{padding:0 12px}.mob .post-title{font-size:16px;padding:6px 12px 8px}
+.mob .post-game{border-radius:0;border-left:0;border-right:0}.mob .post-act{padding:8px 10px}
+.cap{position:absolute;font:500 10.5px ui-monospace,Menlo,monospace;color:#8a8882;letter-spacing:.04em}
+
+/* ---- style Maquette (verrouillé) ---- */
+
+.g{--ink:#111;--mut:#7b7d78;--acc:#1f5cff;--line:#d6d8d2;background:#fafaf7;background-image:radial-gradient(#d9dad4 1px,transparent 1.2px);background-size:9px 9px;color:var(--ink);font-family:"Helvetica Neue",Arial,sans-serif;padding:16px 18px 18px}
+.hd{display:flex;align-items:center;gap:0;background:#fff;border:1px solid var(--ink)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:17px;letter-spacing:-.01em;padding:8px 12px;margin-right:auto}
+.hs{display:flex;flex-direction:column;align-items:flex-end;padding:5px 12px;border-left:1px solid var(--ink);line-height:1.05}
+.hs b{font:600 16px ui-monospace,Menlo,monospace}.hs i{font-style:normal;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.lede{background:#fff;border:1px solid var(--ink);border-top:0;padding:8px 12px;font-size:13px;line-height:1.35;max-width:62%}
+.bd{display:grid;grid-template-columns:1fr 252px;gap:0;align-items:start;margin-top:-8px}
+.iso{display:block;width:100%;height:auto}
+.iso .face{font:700 .5px ui-monospace,Menlo,monospace;fill:#fff;text-anchor:middle}
+.iso .tag{font:600 .36px "Helvetica Neue",Arial,sans-serif;letter-spacing:.02px;fill:#111}
+.iso .tag.todo{fill:#111}
+.panel{background:#fff;border:1px solid var(--ink);margin-top:42px}
+.log-hd{display:flex;justify-content:space-between;padding:8px 12px;border-bottom:1px solid var(--ink);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.log{list-style:none}
+.lr{display:grid;grid-template-columns:44px 22px 1fr 34px;align-items:center;gap:8px;height:32px;padding:0 12px;border-bottom:1px solid var(--line);font-size:13px}
+.lr .t{font:500 12px ui-monospace,Menlo,monospace;color:var(--mut)}
+.lr .ic{width:22px;height:22px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,.08)}
+.lr .ic:empty{border:1px dashed #b9bbb4}
+.lr .d{font:500 12px ui-monospace,Menlo,monospace;text-align:right;color:var(--mut)}
+.lr.done .n{font-weight:600}.lr.last .d,.lr.last .t{color:var(--acc)}
+.lr.dp .n{font-weight:600}.lr.dp .d{font-family:inherit;font-size:11px}
+.lr.next{background:#eef3ff}.lr.next .n{color:var(--acc);font-weight:600}.lr.next .d{color:var(--acc)}
+.lr.todo .n{color:#a3a59e}
+.sum{display:flex;justify-content:space-between;align-items:baseline;padding:10px 12px;font-size:11.5px;color:var(--mut)}
+.sum b{font:600 22px ui-monospace,Menlo,monospace;color:var(--ink);margin-right:4px}
+.acts{display:grid;grid-template-columns:84px 1fr;border-top:1px solid var(--ink)}
+.acts button{height:44px;border:0;font-size:13px;font-weight:600;text-align:left;padding:0 12px}
+.b2{background:#fff;border-right:1px solid var(--ink)!important;color:var(--ink)}
+.b1{background:var(--ink);color:#fff;display:flex;justify-content:space-between;align-items:center}
+.b1[disabled]{background:#ecece7;color:#9b9d96;cursor:not-allowed}
+.b1 .c{font-family:ui-monospace,Menlo,monospace}
+.nw{padding:10px 12px 12px}
+.nw .lede{max-width:none;font-size:12.5px}
+.nw .bd{grid-template-columns:1fr;margin-top:0}
+.nw .field{margin:2px -6px -6px}
+.nw .panel{margin-top:0}
+.nw .lr{height:27px;font-size:12.5px;grid-template-columns:40px 20px 1fr 30px}
+.nw .lr .ic{width:20px;height:20px}
+.nw .sum{padding:6px 12px}.nw .sum b{font-size:18px}
+
+
+.hs.hi b{color:var(--acc)}
+.kv{display:flex;align-items:center;gap:10px;height:32px;padding:0 12px;border-bottom:1px solid var(--line);font-size:13px}
+.kv span{color:var(--mut);margin-right:auto}.kv b{font:600 13px ui-monospace,Menlo,monospace}.kv b.acc{color:var(--acc)}
+.acts.one{grid-template-columns:1fr}.acts.two{grid-template-columns:1fr 84px}
+.acts.two .b2{border-right:0!important;border-left:1px solid var(--ink)!important}
+.b2.full{border-right:0!important}
+.score{display:flex;align-items:center;gap:14px;padding:12px;border-bottom:1px solid var(--line)}
+.score b{font:600 44px/1 ui-monospace,Menlo,monospace;color:var(--acc);letter-spacing:-.02em}.score small{font-size:22px}
+.score span{font-size:12px;line-height:1.3;color:var(--mut)}
+.strip{display:flex;gap:2px}.strip i{width:9px;height:9px;background:#e6e7e2}.strip i.on{background:var(--acc)}.strip i.td{outline:1px solid var(--ink);outline-offset:1px}
+.quote{margin:10px 12px;padding:8px 10px;border:1px dashed #b9bbb4;font:500 11.5px ui-monospace,Menlo,monospace;color:#3a3b38;background:#fafaf7}
+.next{display:flex;justify-content:space-between;padding:8px 12px;border-top:1px solid var(--line);font-size:11.5px;color:var(--mut)}
+.next b{font:600 12px ui-monospace,Menlo,monospace;color:var(--ink)}
+.fl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:44px 0 0 6px}
+.cal{margin-top:-6px}.cal .dl{font:600 .32px ui-monospace,Menlo,monospace;fill:#7b7d78;text-anchor:middle}
+.br{display:grid;grid-template-columns:28px 1fr 46px 46px;align-items:center;height:30px;padding:0 12px;border-bottom:1px solid var(--line);font-size:13px}
+.br .rk,.br .sc,.br .tm{font:500 12px ui-monospace,Menlo,monospace}.br .rk{color:var(--mut)}.br .sc,.br .tm{text-align:right}
+.br.gap{height:18px;color:#b9bbb4}
+.br.me{background:#eef3ff}.br.me .un,.br.me .sc{color:var(--acc);font-weight:600}
+.log-hd.sub{border-top:1px solid var(--ink)}
+.dr{display:grid;grid-template-columns:48px 1fr 36px;align-items:center;gap:8px;height:26px;padding:0 12px;font-size:12px}
+.dr span{font-family:ui-monospace,Menlo,monospace;color:var(--mut)}.dr b{font:600 12px ui-monospace,Menlo,monospace;text-align:right}
+.bar{display:flex;gap:1.5px}.bar i{flex:1;height:9px;background:#ecece7}.bar i.k{background:#111}.bar i.a{background:var(--acc)}
+.nw .kv{height:28px}.nw .score{padding:8px 12px}.nw .score b{font-size:36px}
+.nw .quote{margin:8px 12px}.nw .fl{margin:6px 0 0 4px}
+.nw .br{height:26px}.nw .kv.xs{display:none}.nw .kv{height:26px}.nw .dr{height:22px}
+</style></head>
+<body data-kind="iso">
+<div class="bh"><div class="k">TOURNÉE · PAGE SÉRIES & CLASSEMENT · PLANCHE V3 / 04 · STYLE VERROUILLÉ</div><h1>04 · Séries & classement</h1><p>La série devient une maquette : quatre semaines, une tuile par jour, sa hauteur suit le score (cobalt = tournée parfaite, pointillé = jour manqué). À côté, le classement du jour (score puis horloge) et la répartition des chauffeurs en barres de pixels.</p></div>
+<div class="cap" style="left:40px;top:722px">desktop 1440 × 900 · 62 %</div>
+<div class="cap" style="left:1012px;top:880px">mobile 390 × 844 · 100 %</div>
+<div class="frame desk">
+  <div class="dk-top"><div class="dk-logo"></div><div class="dk-search">Search</div><div class="dk-user"></div></div>
+  <div class="dk-main"><aside class="dk-rail"><span></span><span></span><span></span><span></span><span></span><span></span></aside>
+    <section class="dk-feed"><article class="post"><div class="post-hd"><span class="av"></span><b>r/TourneeDaily</b><span>· 3 h</span></div>
+      <h2 class="post-title">Today's delivery round · Wed 18 Nov</h2><div class="post-game" data-game="wide"></div>
+      <div class="post-act"><span>Vote</span><span>214 comments</span><span>Share</span></div></article></section>
+    <aside class="dk-aside"><span></span><span></span><span></span><span></span></aside></div>
+</div>
+<div class="frame mob">
+  <div class="mb-status"><span>9:41</span><i></i></div>
+  <div class="mb-bar"><span class="a"></span><span class="s"></span><span class="a"></span></div>
+  <article class="post"><div class="post-hd"><span class="av"></span><b>r/TourneeDaily</b><span>· 3 h</span></div>
+    <h2 class="post-title">Today's delivery round · Wed 18 Nov</h2><div class="post-game" data-game="narrow"></div>
+    <div class="post-act"><span>Vote</span><span>214</span><span>Share</span></div></article>
+</div>
+
+<script>window.PAGE_ORDER=[];
+
+const DEPOT={n:'Depot',x:0,y:0,ic:'house'};
+const STOPS=[
+ {n:'Post',x:1,y:5,ic:'mail',tint:'#dde8fb',tag:[-1,1]},
+ {n:'Florist',x:4,y:0,ic:'flower',tint:'#f9dfe9',tag:[1,-1]},
+ {n:'Library',x:6,y:1,ic:'book',tint:'#e6e0fa',tag:[1,-1]},
+ {n:'Atelier',x:4,y:2,ic:'needle',tint:'#fbe7d3',tag:[1,-1]},
+ {n:'Bakery',x:1,y:0,ic:'bread',tint:'#f5eccc',tag:[1,-1]},
+ {n:'School',x:2,y:4,ic:'bell',tint:'#d9f0dc',tag:[-1,-1]}];
+const ORDER=window.PAGE_ORDER||[4,1,2,3];
+const KIND=document.body.dataset.kind;
+const dist=(a,b)=>Math.abs(a.x-b.x)+Math.abs(a.y-b.y);
+const hhmm=m=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+const MIN_PER_BLOCK=3, START=6*60;
+function legs(){let cur=DEPOT,cum=0;return ORDER.map(i=>{const s=STOPS[i],l=dist(cur,s);cum+=l;const o={i,s,from:cur,l,cum,t:hhmm(START+cum*MIN_PER_BLOCK)};cur=s;return o;});}
+function routePts(){const p=[[0,0]];legs().forEach(g=>{p.push([g.s.x,g.from.y]);p.push([g.s.x,g.s.y]);});if(window.CLOSED&&ORDER.length){const l=STOPS[ORDER.at(-1)];p.push([0,l.y]);p.push([0,0]);}return p;}
+// 5x5 pixel glyphs
+const PIX={
+ house:'00100 01110 11111 01010 01110', bread:'00000 01110 11111 10101 11111',
+ flower:'01010 11111 01010 00100 01110', book:'11011 10101 10101 10101 11011',
+ needle:'10001 01010 00100 01010 11011', mail:'11111 11011 10101 10001 11111',
+ bell:'00100 01110 01110 11111 00100', van:'11100 10110 11111 11111 01010'};
+function pix(name,x,y,u,fill){let s='';PIX[name].split(' ').forEach((row,r)=>[...row].forEach((c,k)=>{if(c==='1')s+=`<rect x="${(x+k*u).toFixed(3)}" y="${(y+r*u).toFixed(3)}" width="${u}" height="${u}" fill="${fill}"/>`;}));return s;}
+function pixSvg(name,size,fill){return `<svg class="px" width="${size}" height="${size}" viewBox="0 0 5 5" shape-rendering="crispEdges">${pix(name,0,0,1,fill)}</svg>`;}
+// constructed stroke type (own design: orthogonal + 45deg strokes on a 4x6 grid)
+const GLY={
+ T:[[[0,0],[4,0]],[[2,0],[2,6]]], O:[[[1,0],[3,0],[4,1],[4,5],[3,6],[1,6],[0,5],[0,1],[1,0]]],
+ U:[[[0,0],[0,5],[1,6],[3,6],[4,5],[4,0]]], R:[[[0,6],[0,0],[3,0],[4,1],[4,2],[3,3],[0,3]],[[2,3],[4,6]]],
+ N:[[[0,6],[0,0],[4,6],[4,0]]], E:[[[4,0],[0,0],[0,6],[4,6]],[[0,3],[3,3]]],
+ 'É':[[[4,0],[0,0],[0,6],[4,6]],[[0,3],[3,3]],[[1.5,-1],[3,-2.2]]],
+ '0':[[[1,0],[3,0],[4,1],[4,5],[3,6],[1,6],[0,5],[0,1],[1,0]]],
+ '1':[[[1,1],[2,0],[2,6]],[[1,6],[3,6]]], '2':[[[0,1],[1,0],[3,0],[4,1],[4,2],[0,6],[4,6]]],
+ '3':[[[0,0],[4,0],[2,2.5],[3,2.5],[4,3.5],[4,5],[3,6],[1,6],[0,5]]], '4':[[[3,6],[3,0],[0,4],[4,4]]],
+ '5':[[[4,0],[0,0],[0,2.5],[3,2.5],[4,3.5],[4,5],[3,6],[0,6]]],
+ '6':[[[3,0],[1,0],[0,1],[0,5],[1,6],[3,6],[4,5],[4,3.5],[3,2.5],[0,2.5]]], '7':[[[0,0],[4,0],[1.5,6]]],
+ '8':[[[1,3],[0,2],[0,1],[1,0],[3,0],[4,1],[4,2],[3,3],[1,3],[0,4],[0,5],[1,6],[3,6],[4,5],[4,4],[3,3]]],
+ '9':[[[4,3.5],[1,3.5],[0,2.5],[0,1],[1,0],[3,0],[4,1],[4,5],[3,6],[1,6]]],
+ ':':[[[2,1.5],[2,2]],[[2,4.5],[2,5]]], '/':[[[0,6],[4,0]]], ' ':[]};
+function stroke(str,x,y,h,cls){const k=h/6;let s=`<g class="${cls||'ct'}" transform="translate(${x} ${y}) skewX(-14) scale(${k})">`;let cx=0;
+ [...str].forEach(ch=>{(GLY[ch]||[]).forEach(pl=>{s+=`<polyline points="${pl.map(p=>(p[0]+cx)+','+p[1]).join(' ')}"/>`;});cx+=ch===' '?3.5:6;});
+ return s+'</g>';}
+function strokeW(str,h){return [...str].reduce((w,ch)=>w+(ch===' '?3.5:6),0)*h/6-h/6*2;}
+
+
+const ACC='#1f5cff';
+const iso=(x,y,z=0)=>[(x-y),(x+y)*.5-z];
+const P=(pts)=>pts.map(p=>p.map(v=>v.toFixed(3)).join(',')).join(' ');
+function shade(hex,f){const n=parseInt(hex.slice(1),16);const c=[n>>16,(n>>8)&255,n&255].map(v=>Math.round(v*f));return '#'+c.map(v=>v.toString(16).padStart(2,'0')).join('');}
+function prism(x0,y0,x1,y1,h,top,left,right,stroke,sw){
+  const A=iso(x0,y0),B=iso(x1,y0),C=iso(x1,y1),D=iso(x0,y1);
+  const up=p=>[p[0],p[1]-h];
+  let s='';
+  if(h>0){s+=`<polygon points="${P([D,C,up(C),up(D)])}" fill="${left}" stroke="${stroke}" stroke-width="${sw}" stroke-linejoin="round"/>`;
+          s+=`<polygon points="${P([C,B,up(B),up(C)])}" fill="${right}" stroke="${stroke}" stroke-width="${sw}" stroke-linejoin="round"/>`;}
+  s+=`<polygon points="${P([up(A),up(B),up(C),up(D)])}" fill="${top}" stroke="${stroke}" stroke-width="${sw}" stroke-linejoin="round"/>`;
+  return s;}
+const TINTS=['#e4f2df','#ece7f8','#e0eaf8','#f7eadb','#f1f1ec','#f1f1ec','#e4f2df'];
+function hash(i,j){return ((i*73856093)^(j*19349663))>>>0;}
+function isoMap(){
+  let s=`<svg viewBox="-7.7 -1.9 16.1 9.3" class="iso" role="img" aria-label="Isometric city with depot and six stops">`;
+  const g=.13;
+  const cells=[];for(let i=0;i<7;i++)for(let j=0;j<7;j++)cells.push([i,j]);
+  cells.sort((a,b)=>(a[0]+a[1])-(b[0]+b[1]));
+  cells.forEach(([i,j])=>{const hv=hash(i,j);const t=TINTS[hv%TINTS.length];const h=[0,0,.12,.22,.36][hv%5];
+    s+=prism(i+g,j+g,i+1-g,j+1-g,h,t,shade(t,.93),shade(t,.86),'#c5cbc2',.018);});
+  const rp=routePts().map(p=>iso(p[0],p[1]));
+  s+=`<polyline points="${P(rp)}" fill="none" stroke="#fff" stroke-width=".3" stroke-linejoin="round" stroke-linecap="round"/>`;
+  s+=`<polyline points="${P(rp)}" fill="none" stroke="${ACC}" stroke-width=".14" stroke-linejoin="round" stroke-linecap="round"/>`;
+  // next-leg hint: dashed from last stop
+  const items=[{st:DEPOT,k:-2}].concat(STOPS.map((st,i)=>({st,k:ORDER.indexOf(i)})));
+  items.sort((a,b)=>(a.st.x+a.st.y)-(b.st.x+b.st.y));
+  const last=ORDER.length-1;
+  items.forEach(({st,k})=>{
+    const r=.24,{x,y}=st;
+    if(k===last&&!window.NO_RING){const ring=[iso(x-.55,y-.55),iso(x+.55,y-.55),iso(x+.55,y+.55),iso(x-.55,y+.55)];s+=`<polygon points="${P(ring)}" fill="none" stroke="${ACC}" stroke-width=".035" stroke-dasharray=".12 .08"/>`;}
+    if(k===-2) s+=prism(x-.3,y-.3,x+.3,y+.3,.55,'#2b2b2b','#111','#1d1d1d','#111',.02);
+    else if(k<0) s+=prism(x-r,y-r,x+r,y+r,1.05,'#ffffff','#f0f0ec','#e0e0da','#111',.025);
+    else s+=prism(x-r,y-r,x+r,y+r,1.05,'#6f95ff',ACC,'#1746c9','#0b2a86',.02);
+    const C=iso(x+r,y+r), B=iso(x+r,y-r);
+    if(k>=0){const mx=(C[0]+B[0])/2, my=(C[1]+B[1])/2-.55;
+      s+=`<text x="${mx}" y="${my+.14}" transform="rotate(0)" class="face" style="transform-box:fill-box;transform-origin:center;transform:skewY(-26.565deg)">${k+1}</text>`;}
+    // tag
+    const top=iso(x,y,k===-2?.55:1.05);
+    const side=k===-2?-1:st.tag[0], vy=k===-2?-1:st.tag[1];
+    const tx=top[0]+side*.55, ty=top[1]+(vy<0?-.55:.9);
+    const label=(k===-2?'Depot':st.n).toUpperCase();
+    const w=.72+label.length*.255;
+    const rx=side>0?tx:tx-w;
+    s+=`<line x1="${top[0]}" y1="${top[1]}" x2="${side>0?rx:rx+w}" y2="${ty}" stroke="#111" stroke-width=".018"/>`;
+    s+=`<rect x="${rx}" y="${ty-.29}" width="${w}" height=".58" fill="${k>=0||k===-2?'#fff':'#fff'}" stroke="#111" stroke-width=".02"/>`;
+    s+=pix(k===-2?'house':st.ic,rx+.1,ty-.19,.075,k>=0?ACC:'#111');
+    s+=`<text x="${rx+.6}" y="${ty+.125}" class="tag${k<0&&k!==-2?' todo':''}">${label}</text>`;
+  });
+  return s+'</svg>';}
+
+
+function hdr(clock,streak,hi){return `<header class="hd"><span class="brand">${pixSvg('van',18,'#111')}Tournée</span><span class="hs"><b>${clock}</b><i>clock</i></span><span class="hs${hi?' hi':''}"><b>${streak}</b><i>streak</i></span></header>`;}
+
+
+const DAYS=[100,92,85,100,-1,94,100, 88,100,96,100,-1,79,100, 100,91,83,100,100,100,100, 100,100,100];
+function calendar(){
+  let s=`<svg viewBox="-4.4 -1.5 11.6 6.9" class="iso cal" role="img" aria-label="Last four weeks, one tile per day">`;
+  const cells=[];for(let r=0;r<4;r++)for(let c=0;c<7;c++)cells.push([c,r]);
+  cells.sort((a,b)=>(a[0]+a[1])-(b[0]+b[1]));
+  const g=.1;
+  cells.forEach(([c,r])=>{const d=r*7+c;const v=DAYS[d];
+    if(v===undefined){s+=prism(c+g,r+g,c+1-g,r+1-g,0,'#fafaf7','#fafaf7','#fafaf7','#d3d5cf',.018);return;}
+    if(v<0){s+=prism(c+g,r+g,c+1-g,r+1-g,0,'#ffffff','#fff','#fff','#9a9c95',.02).replace('stroke-linejoin','stroke-dasharray=".08 .06" stroke-linejoin');return;}
+    const h=v===100?.62:Math.max(.08,(v-70)/30*.42);
+    if(v===100) s+=prism(c+g,r+g,c+1-g,r+1-g,h,'#6f95ff',ACC,'#1746c9','#0b2a86',.018);
+    else {const t=v>=90?'#e0eaf8':v>=80?'#ece7f8':'#f7eadb';s+=prism(c+g,r+g,c+1-g,r+1-g,h,t,shade(t,.93),shade(t,.86),'#9fa59c',.018);}
+  });
+  ['M','T','W','T','F','S','S'].forEach((l,c)=>{const p=iso(c+.5,4.35);s+=`<text x="${p[0]}" y="${p[1]+.1}" class="dl">${l}</text>`;});
+  const tp=iso(2.5,3.5,.62);const tx=tp[0]+.6, ty=tp[1]-1.1;
+  s+=`<line x1="${tp[0]}" y1="${tp[1]}" x2="${tx}" y2="${ty}" stroke="#111" stroke-width=".018"/>`;
+  s+=`<rect x="${tx}" y="${ty-.29}" width="3.25" height=".58" fill="#fff" stroke="#111" stroke-width=".02"/><text x="${tx+.14}" y="${ty+.125}" class="tag">TODAY · 100%</text>`;
+  const mp=iso(4.5,1.5,0);const mx=mp[0]+1.1,my=mp[1]-1.0;
+  s+=`<line x1="${mp[0]}" y1="${mp[1]}" x2="${mx}" y2="${my}" stroke="#111" stroke-width=".018"/>`;
+  s+=`<rect x="${mx}" y="${my-.29}" width="2.05" height=".58" fill="#fff" stroke="#111" stroke-width=".02"/><text x="${mx+.14}" y="${my+.125}" class="tag">MISSED</text>`;
+  return s+'</svg>';}
+function bar(p,acc){const n=Math.round(p/5);let s='<span class="bar">';for(let i=0;i<20;i++)s+=`<i class="${i<n?(acc?'a':'k'):''}"></i>`;return s+'</span>';}
+function game(narrow){
+  const rows=[[1,'u/quai_ouest','100%','00:31'],[2,'u/vanlight','100%','00:36'],[3,'u/tram_nine','100%','00:41'],[4,'u/leo_parcel','100%','00:44'],[5,'u/roundabout','100%','00:47']];
+  const show=narrow?rows.slice(0,3):rows;
+  let b=show.map(r=>`<li class="br"><span class="rk">${r[0]}</span><span class="un">${r[1]}</span><span class="sc">${r[2]}</span><span class="tm">${r[3]}</span></li>`).join('');
+  b+=`<li class="br gap"><span class="rk">·</span><span class="un">·</span><span></span><span></span></li>`;
+  b+=`<li class="br me"><span class="rk">37</span><span class="un">You</span><span class="sc">100%</span><span class="tm">00:58</span></li>`;
+  const dist=[['100%',61,true],['90–99',22],['80–89',11],['< 80',6]];
+  return `<div class="g ${narrow?'nw':'wd'}">
+  ${hdr('00:58','7',true)}
+  <p class="lede"><b>7 perfect rounds in a row.</b> Your best run is 9. Today, 1,284 drivers went out.</p>
+  <div class="bd"><div class="field"><div class="fl">Last 4 weeks · tile height = score</div>${calendar()}</div>
+   <div class="panel">
+    <div class="log-hd"><span>Today's board</span><span>score, then clock</span></div>
+    <ol class="log board">${b}</ol>
+    <div class="log-hd sub"><span>How drivers did</span><span>1,284</span></div>
+    <ol class="log dist">${dist.map(d=>`<li class="dr"><span>${d[0]}</span>${bar(d[1],d[2])}<b>${d[1]}%</b></li>`).join('')}</ol>
+    <div class="acts one"><button class="b2 full">Back to today's round</button></div>
+   </div></div></div>`;}
+
+document.querySelectorAll('[data-game]').forEach(el=>{el.innerHTML=game(el.dataset.game==='narrow');});</script>
+</body></html>

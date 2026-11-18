@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>Tournée · Jeu · V2 C · Feuilleton</title>
+<meta name="viewport" content="width=1440">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1440px;height:900px;overflow:hidden}
+body{background:#ebeae6;color:#222;font:13px/1.4 -apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+button{font:inherit}
+.bh{position:absolute;left:40px;top:30px;width:880px}
+.bh .k{font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#76746e}
+.bh h1{font-size:26px;font-weight:600;letter-spacing:-.02em;margin:6px 0 6px}
+.bh p{font-size:13.5px;color:#4a4843;max-width:760px}
+.frame{position:absolute;transform-origin:0 0;overflow:hidden;background:#f3f4f5;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 24px 48px -24px rgba(0,0,0,.3)}
+.desk{width:1440px;height:900px;left:40px;top:150px;transform:scale(.62);border-radius:14px}
+.mob{width:390px;height:844px;left:1012px;top:30px;border-radius:44px;border:10px solid #1b1b1d}
+.dk-top{height:56px;background:#fff;border-bottom:1px solid #e3e5e8;display:flex;align-items:center;gap:20px;padding:0 24px}
+.dk-logo{width:110px;height:22px;border-radius:6px;background:#dcdfe2}
+.dk-search{flex:0 0 520px;margin:0 auto;height:38px;border-radius:19px;background:#eef0f2;color:#8a8f95;display:flex;align-items:center;padding:0 18px;font-size:14px}
+.dk-user{width:32px;height:32px;border-radius:50%;background:#dcdfe2}
+.dk-main{display:flex;gap:24px;padding:20px 24px}
+.dk-rail{width:220px;display:flex;flex-direction:column;gap:12px;padding-top:6px}
+.dk-rail span{height:14px;border-radius:7px;background:#e1e4e7}.dk-rail span:nth-child(2n){width:70%}
+.dk-feed{width:760px;margin-left:90px}
+.dk-aside{width:300px;background:#fff;border-radius:12px;height:220px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.dk-aside span{height:12px;border-radius:6px;background:#e7e9eb}
+.post{background:#fff;border-radius:12px;padding:14px 10px 10px}
+.post-hd{display:flex;align-items:center;gap:8px;font-size:12px;color:#62676d;padding:0 6px}
+.post-hd .av{width:24px;height:24px;border-radius:50%;background:#cfd3d7}.post-hd b{color:#1f1f1f}
+.post-title{font-size:19px;font-weight:600;padding:8px 6px 12px}
+.post-game{border-radius:8px;overflow:hidden;border:1px solid #e6e7e9}
+.post-act{display:flex;gap:8px;padding:10px 4px 0}
+.post-act span{height:32px;padding:0 14px;border-radius:16px;background:#eef0f2;display:flex;align-items:center;font-size:12.5px;font-weight:600;color:#3c4043}
+.mb-status{height:44px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;font-size:14px;font-weight:600;background:#fff}
+.mb-status i{width:60px;height:12px;border-radius:6px;background:#1b1b1d;opacity:.85}
+.mb-bar{height:48px;background:#fff;display:flex;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid #e9ebed}
+.mb-bar .a{width:22px;height:22px;border-radius:6px;background:#dcdfe2}.mb-bar .s{flex:1;height:32px;border-radius:16px;background:#eef0f2}
+.mob .post{border-radius:0;padding:10px 0 0}.mob .post-hd{padding:0 12px}.mob .post-title{font-size:16px;padding:6px 12px 8px}
+.mob .post-game{border-radius:0;border-left:0;border-right:0}.mob .post-act{padding:8px 10px}
+.cap{position:absolute;font:500 10.5px ui-monospace,Menlo,monospace;color:#8a8882;letter-spacing:.04em}
+
+/* ---- direction C · Feuilleton ---- */
+
+.g{--ink:#111;--mut:#80827c;background:#f7f6f2;color:var(--ink);font-family:"Helvetica Neue",Arial,sans-serif;padding:18px 20px 20px}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.ttl{display:flex;align-items:center;gap:10px;font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.meta{display:flex;gap:14px;font-size:12px;color:var(--mut);align-items:baseline}
+.meta .m{font:600 15px ui-monospace,Menlo,monospace;color:var(--ink)}.meta b{color:var(--ink)}
+.bd{display:grid;grid-template-columns:372px 1fr;gap:22px;margin-top:16px;align-items:start}
+.tm{display:block;width:100%;height:auto}
+.tm .bn{font:700 .5px ui-monospace,Menlo,monospace;fill:#fff;text-anchor:middle}
+.ch{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
+.evs{list-style:none}
+.ev{display:grid;grid-template-columns:46px 1fr;gap:6px;padding:7px 0;border-top:1px solid #e1e0da;font-size:14.5px;line-height:1.3}
+.ev .t{font:500 12px ui-monospace,Menlo,monospace;color:var(--mut);padding-top:2px}
+.ev p{margin:0}
+.ev .chip{display:inline-flex;width:18px;height:18px;align-items:center;justify-content:center;border:1px solid var(--ink);vertical-align:-3px;margin-right:6px}
+.ev.last .t{color:var(--ink);font-weight:700}
+.ev.q{border-top:2px solid var(--ink)}.ev.q p{font-size:16px;font-weight:500}
+.acts{display:grid;grid-template-columns:90px 1fr;gap:8px;margin-top:14px}
+.acts button{height:46px;font-size:14px;font-weight:600;border:2px solid var(--ink)}
+.b2{background:transparent;color:var(--ink)}
+.b1{background:var(--ink);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:0 14px}
+.b1 span{font-family:ui-monospace,Menlo,monospace}
+.b1[disabled]{background:transparent;color:#a3a59f;border-color:#c9cac4;cursor:not-allowed}
+.nw{padding:12px 14px 14px}
+.nw .ttl{font-size:24px}.nw .meta span:first-child{display:none}
+.nw .bd{grid-template-columns:1fr;gap:10px;margin-top:10px}
+.nw .ev{padding:5px 0;font-size:13px}.nw .ev.q p{font-size:14px}
+.nw .ch{display:none}
+.nw .acts{margin-top:8px}.nw .acts button{height:44px}
+</style></head>
+<body data-kind="tiles">
+<div class="bh"><div class="k">TOURNÉE · PAGE JEU · PLANCHE V2 / C</div><h1>C · Feuilleton</h1><p>Le récit d'abord : une ville en tuiles plates, vue de haut ; la tournée s'imprime case par case en noir. À côté, la matinée s'écrit comme une histoire, une ligne par livraison, et la question du moment est posée en clair : « School or Post first? ». Pastels et pixels de Baseten, sobriété noire.</p></div>
+<div class="cap" style="left:40px;top:722px">desktop 1440 × 900 · 62 %</div>
+<div class="cap" style="left:1012px;top:880px">mobile 390 × 844 · 100 %</div>
+<div class="frame desk">
+  <div class="dk-top"><div class="dk-logo"></div><div class="dk-search">Search</div><div class="dk-user"></div></div>
+  <div class="dk-main"><aside class="dk-rail"><span></span><span></span><span></span><span></span><span></span><span></span></aside>
+    <section class="dk-feed"><article class="post"><div class="post-hd"><span class="av"></span><b>r/TourneeDaily</b><span>· 3 h</span></div>
+      <h2 class="post-title">Today's delivery round · Wed 18 Nov</h2><div class="post-game" data-game="wide"></div>
+      <div class="post-act"><span>Vote</span><span>214 comments</span><span>Share</span></div></article></section>
+    <aside class="dk-aside"><span></span><span></span><span></span><span></span></aside></div>
+</div>
+<div class="frame mob">
+  <div class="mb-status"><span>9:41</span><i></i></div>
+  <div class="mb-bar"><span class="a"></span><span class="s"></span><span class="a"></span></div>
+  <article class="post"><div class="post-hd"><span class="av"></span><b>r/TourneeDaily</b><span>· 3 h</span></div>
+    <h2 class="post-title">Today's delivery round · Wed 18 Nov</h2><div class="post-game" data-game="narrow"></div>
+    <div class="post-act"><span>Vote</span><span>214</span><span>Share</span></div></article>
+</div>
+
+<script>
+const DEPOT={n:'Depot',x:0,y:0,ic:'house'};
+const STOPS=[
+ {n:'Post',x:1,y:5,ic:'mail',tint:'#dde8fb',tag:[-1,1]},
+ {n:'Florist',x:4,y:0,ic:'flower',tint:'#f9dfe9',tag:[1,-1]},
+ {n:'Library',x:6,y:1,ic:'book',tint:'#e6e0fa',tag:[1,-1]},
+ {n:'Atelier',x:4,y:2,ic:'needle',tint:'#fbe7d3',tag:[1,-1]},
+ {n:'Bakery',x:1,y:0,ic:'bread',tint:'#f5eccc',tag:[1,-1]},
+ {n:'School',x:2,y:4,ic:'bell',tint:'#d9f0dc',tag:[-1,-1]}];
+const ORDER=[4,1,2,3];
+const KIND=document.body.dataset.kind;
+const dist=(a,b)=>Math.abs(a.x-b.x)+Math.abs(a.y-b.y);
+const hhmm=m=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+const MIN_PER_BLOCK=3, START=6*60;
+function legs(){let cur=DEPOT,cum=0;return ORDER.map(i=>{const s=STOPS[i],l=dist(cur,s);cum+=l;const o={i,s,from:cur,l,cum,t:hhmm(START+cum*MIN_PER_BLOCK)};cur=s;return o;});}
+function routePts(){const p=[[0,0]];legs().forEach(g=>{p.push([g.s.x,g.from.y]);p.push([g.s.x,g.s.y]);});return p;}
+// 5x5 pixel glyphs
+const PIX={
+ house:'00100 01110 11111 01010 01110', bread:'00000 01110 11111 10101 11111',
+ flower:'01010 11111 01010 00100 01110', book:'11011 10101 10101 10101 11011',
+ needle:'10001 01010 00100 01010 11011', mail:'11111 11011 10101 10001 11111',
+ bell:'00100 01110 01110 11111 00100', van:'11100 10110 11111 11111 01010'};
+function pix(name,x,y,u,fill){let s='';PIX[name].split(' ').forEach((row,r)=>[...row].forEach((c,k)=>{if(c==='1')s+=`<rect x="${(x+k*u).toFixed(3)}" y="${(y+r*u).toFixed(3)}" width="${u}" height="${u}" fill="${fill}"/>`;}));return s;}
+function pixSvg(name,size,fill){return `<svg class="px" width="${size}" height="${size}" viewBox="0 0 5 5" shape-rendering="crispEdges">${pix(name,0,0,1,fill)}</svg>`;}
+// constructed stroke type (own design: orthogonal + 45deg strokes on a 4x6 grid)
+const GLY={
+ T:[[[0,0],[4,0]],[[2,0],[2,6]]], O:[[[1,0],[3,0],[4,1],[4,5],[3,6],[1,6],[0,5],[0,1],[1,0]]],
+ U:[[[0,0],[0,5],[1,6],[3,6],[4,5],[4,0]]], R:[[[0,6],[0,0],[3,0],[4,1],[4,2],[3,3],[0,3]],[[2,3],[4,6]]],
+ N:[[[0,6],[0,0],[4,6],[4,0]]], E:[[[4,0],[0,0],[0,6],[4,6]],[[0,3],[3,3]]],
+ 'É':[[[4,0],[0,0],[0,6],[4,6]],[[0,3],[3,3]],[[1.5,-1],[3,-2.2]]],
+ '0':[[[1,0],[3,0],[4,1],[4,5],[3,6],[1,6],[0,5],[0,1],[1,0]]],
+ '1':[[[1,1],[2,0],[2,6]],[[1,6],[3,6]]], '2':[[[0,1],[1,0],[3,0],[4,1],[4,2],[0,6],[4,6]]],
+ '3':[[[0,0],[4,0],[2,2.5],[3,2.5],[4,3.5],[4,5],[3,6],[1,6],[0,5]]], '4':[[[3,6],[3,0],[0,4],[4,4]]],
+ '5':[[[4,0],[0,0],[0,2.5],[3,2.5],[4,3.5],[4,5],[3,6],[0,6]]],
+ '6':[[[3,0],[1,0],[0,1],[0,5],[1,6],[3,6],[4,5],[4,3.5],[3,2.5],[0,2.5]]], '7':[[[0,0],[4,0],[1.5,6]]],
+ '8':[[[1,3],[0,2],[0,1],[1,0],[3,0],[4,1],[4,2],[3,3],[1,3],[0,4],[0,5],[1,6],[3,6],[4,5],[4,4],[3,3]]],
+ '9':[[[4,3.5],[1,3.5],[0,2.5],[0,1],[1,0],[3,0],[4,1],[4,5],[3,6],[1,6]]],
+ ':':[[[2,1.5],[2,2]],[[2,4.5],[2,5]]], '/':[[[0,6],[4,0]]], ' ':[]};
+function stroke(str,x,y,h,cls){const k=h/6;let s=`<g class="${cls||'ct'}" transform="translate(${x} ${y}) skewX(-14) scale(${k})">`;let cx=0;
+ [...str].forEach(ch=>{(GLY[ch]||[]).forEach(pl=>{s+=`<polyline points="${pl.map(p=>(p[0]+cx)+','+p[1]).join(' ')}"/>`;});cx+=ch===' '?3.5:6;});
+ return s+'</g>';}
+function strokeW(str,h){return [...str].reduce((w,ch)=>w+(ch===' '?3.5:6),0)*h/6-h/6*2;}
+
+
+function tileMap(){
+  const N=15;let s=`<svg viewBox="-1.25 -1.25 ${N+1.5} ${N+1.5}" class="tm" role="img" aria-label="Tile city, depot and six stops" shape-rendering="crispEdges">`;
+  const route=new Set();const rp=routePts();
+  for(let k=1;k<rp.length;k++){const [x0,y0]=rp[k-1],[x1,y1]=rp[k];
+    for(let x=Math.min(x0,x1)*2;x<=Math.max(x0,x1)*2;x++)for(let y=Math.min(y0,y1)*2;y<=Math.max(y0,y1)*2;y++)route.add(x+','+y);}
+  const G=.06;s+=`<rect x="-.08" y="-.08" width="${N+.16}" height="${N+.16}" fill="#d9dbd5"/>`;
+  for(let r=0;r<N;r++)for(let c=0;c<N;c++){
+    const street=(r%2===0)||(c%2===0);
+    let f;
+    if(!street){const hv=((c*31)^(r*17))%9; f=['#e9eee6','#efece6','#e7ebf2','#ecebe6','#ece8f1','#e9eee6','#f0ede4','#e8ebe8','#d9ead8'][hv];}
+    else f=route.has(c+','+r)?'#111':'#ffffff';
+    s+=`<rect x="${c+G}" y="${r+G}" width="${1-2*G}" height="${1-2*G}" fill="${f}"/>`;}
+  // stops as pixel chips
+  const chip=(st,k)=>{const cx=st.x*2, cy=st.y*2;const big=.32;
+    let o=`<rect x="${cx-big}" y="${cy-big}" width="${1+2*big}" height="${1+2*big}" fill="${k===-2?'#111':st.tint}" stroke="#111" stroke-width="${k>=0||k===-2?.09:.05}" shape-rendering="geometricPrecision"/>`;
+    o+=pix(k===-2?'house':st.ic,cx-big+.24,cy-big+.24,.25*(1+2*big-.48)/1.25,k===-2?'#fff':'#111');
+    if(k>=0) o+=`<rect x="${cx+.55}" y="${cy-.95}" width=".72" height=".72" fill="#111"/><text x="${cx+.91}" y="${cy-.4}" class="bn">${k+1}</text>`;
+    if(k===ORDER.length-1) o+=`<rect x="${cx-.62}" y="${cy-.62}" width="2.24" height="2.24" fill="none" stroke="#111" stroke-width=".05" stroke-dasharray=".18 .14" shape-rendering="geometricPrecision"/>`;
+    return o;};
+  s+=chip(DEPOT,-2);
+  STOPS.forEach((st,i)=>s+=chip(st,ORDER.indexOf(i)));
+  return s+'</svg>';}
+function game(narrow){
+  const L=legs();
+  const lines=[`<li class="ev"><span class="t">06:00</span><p>The van leaves the <b>depot</b>, six parcels in the back.</p></li>`];
+  L.forEach((g,k)=>lines.push(`<li class="ev${k===L.length-1?' last':''}"><span class="t">${g.t}</span><p><span class="chip" style="background:${g.s.tint}">${pixSvg(g.s.ic,12,'#111')}</span><b>${g.s.n}</b>, ${g.l} block${g.l>1?'s':''} on.</p></li>`));
+  lines.push(`<li class="ev q"><span class="t">06:30</span><p>Two parcels left: <b>School</b> or <b>Post</b> first?</p></li>`);
+  const shown=narrow?lines.slice(-3):lines;
+  return `<div class="g ${narrow?'nw':'wd'}">
+   <header class="hd"><div class="ttl">${pixSvg('van',20,'#111')}<span>Tournée</span></div><div class="meta"><span>Wed 18 Nov</span><span class="m">00:42</span><span>Streak <b>6</b></span></div></header>
+   <div class="bd"><div class="mapw">${tileMap()}</div>
+    <div class="story"><div class="ch">Wed 18 Nov · the morning round</div><ol class="evs">${shown.join('')}</ol>
+     <div class="acts"><button class="b2">Undo</button><button class="b1" disabled>Send route <span>4/6</span></button></div></div>
+   </div></div>`;}
+
+document.querySelectorAll('[data-game]').forEach(el=>{el.innerHTML=game(el.dataset.game==='narrow');});</script>
+</body></html>
